@@ -14,7 +14,9 @@ console.log("hi");
     const input = e.target.value;
     console.log(input);
     document.getElementById("his").innerHTML = input;
-    searchForCharacter(input);
+    //searchForCharacter(input);
+    //debounce(searchForCharacter(input), 2500);
+    debouncedCharacterSearch(input);
   });
   
   console.log(searchInput);
@@ -42,6 +44,8 @@ async function searchForCharacter(query) {
   displayCharacters(characterData)
 }
 
+const debouncedCharacterSearch = debounce(searchForCharacter, 500)
+
 function displayCharacters(characters){
   //console.log(characters);
   const listOfCharacterNames = characters.results.map(character => {
@@ -49,4 +53,21 @@ function displayCharacters(characters){
   }).join(" ");
 
   results.innerHTML = `<ul class="characters">${listOfCharacterNames}</ul>`;
+}
+
+
+function debounce(func, wait) {
+  var timeout;
+
+  return function () {
+    var context = this;
+    var args = arguments;
+
+    clearTimeout(timeout);
+
+    timeout = setTimeout(() => {
+      timeout = null;
+      func.apply(context, args);
+    }, wait);
+  };
 }
