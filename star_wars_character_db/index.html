@@ -20,7 +20,16 @@
              </svg>             
           </button>
       </div>
-      <div id="results"></div>      
+      <div id="results">
+        <dialog id="popup-dialog">
+          <h2 id="character-title"></h2>
+          <div id="dialog-content">
+           <!-- Placeholder for fetched data -->
+           Loading...
+          </div>
+          <button id="close-dialog">Close</button>
+         </dialog>         
+      </div>      
     </div>
     <script type="module" src="/src/main.js">
     </script>

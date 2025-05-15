@@ -1,5 +1,10 @@
 import './style.css'
 
+const dialog = document.getElementById("popup-dialog");
+const characterTitle = document.getElementById("character-title");
+const dialogContent = document.getElementById("dialog-content");
+const closeDialogButton = document.getElementById("close-dialog");
+
 console.log("hi");
 // Adding an event listener that listens to whenever the user types something into the search bar
 //window.addEventListener("load", displayDate);
@@ -48,9 +53,14 @@ const debouncedCharacterSearch = debounce(searchForCharacter, 500)
 
 function displayCharacters(characters){
   //console.log(characters);
+  
   const listOfCharacterNames = characters.results.map(character => {
-    return `<li>${character.name}</li>`
+    return `<li><a href="${character.url}">${character.name}</a></li>`
   }).join(" ");
+  /*
+  const listOfNames = characters.map(character => {
+    return `<li><a data-url="${character.url}">${character.name}</a></li>`
+  }).join(" ")*/
 
   results.innerHTML = `<ul class="characters">${listOfCharacterNames}</ul>`;
 }
