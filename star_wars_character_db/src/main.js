@@ -2,15 +2,24 @@ import './style.css'
 
 console.log("hi");
 // Adding an event listener that listens to whenever the user types something into the search bar
-window.addEventListener("load", displayDate);
-function displayDate() {
-  document.getElementById("hi").innerHTML = Date();
+//window.addEventListener("load", displayDate);
+//function displayDate() {
+  //document.getElementById("hi").innerHTML = Date();
   // Getting the search input
-  const searchInput = document.getElementById("search-container input");
+  const searchInput = document.getElementById("hope");
+  console.log(searchInput);
+  if(searchInput) {
+  searchInput.addEventListener("input", (e) => {
+    // Get the value of the input
+    const input = e.target.value;
+    console.log(input);
+    document.getElementById("his").innerHTML = input;
+  });
+  
   console.log(searchInput);
     // Get the value of the input
   //searchForCharacter(searchInput);
-  document.getElementById("his").innerHTML = searchInput;
+  
 }
 
 document.addEventListener("DOMContentLoaded", function(){
