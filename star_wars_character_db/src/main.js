@@ -9,12 +9,13 @@ function displayDate() {
   const searchInput = document.getElementById("search-container input");
   console.log(searchInput);
     // Get the value of the input
+  //searchForCharacter(searchInput);
   document.getElementById("his").innerHTML = searchInput;
 }
 
 document.addEventListener("DOMContentLoaded", function(){
   fetch(`https://swapi.py4e.com/api/people`).then(resp => resp.json()).then(data => {
-console.log(data)
+//console.log(data)
 displayCharacters(data)
   }).catch(e => {
 console.log(e);
@@ -27,10 +28,12 @@ async function searchForCharacter(query) {
 	const characterData = await fetch(`https://swapi.py4e.com/api/people?search=${query}`).then(resp => resp.json());
 
 	console.log(characterData);
+  
+  displayCharacters(characterData)
 }
 
 function displayCharacters(characters){
-  console.log(characters);
+  //console.log(characters);
   const listOfCharacterNames = characters.results.map(character => {
     return `<li>${character.name}</li>`
   }).join(" ");
