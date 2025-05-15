@@ -14,11 +14,12 @@ console.log("hi");
     const input = e.target.value;
     console.log(input);
     document.getElementById("his").innerHTML = input;
+    searchForCharacter(input);
   });
   
   console.log(searchInput);
     // Get the value of the input
-  //searchForCharacter(searchInput);
+  
   
 }
 
